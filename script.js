@@ -1,32 +1,34 @@
 window.onload = async () => {
-  const { rapidAPIKey } = await import("./api-keys.js");
+  const { apiKey, apiID } = await import("./api-keys.js");
   const jobs = document.querySelector("#jobs");
-  const url = "https://linkedin-jobs-search.p.rapidapi.com/";
+  const url = `https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=${apiID}&app_key=${apiKey}`;
   const options = {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-      "X-RapidAPI-Key": rapidAPIKey,
-      "X-RapidAPI-Host": "linkedin-jobs-search.p.rapidapi.com",
+    method: "GET",
+    header: {
+      Accept: "application/json",
     },
-    body: '{"search_terms":"frontend developer","location":"30301","page":"1"}',
   };
 
   const data = await getData(url, options);
-  const jobsData = data.map((obj) => {
-    return {
-      job_title: obj.job_title,
-      posted_date: obj.posted_date,
-      company_name: obj.company_name,
-      company_url: obj.company_url,
-      job_url: obj.job_url,
-    };
-  });
+  const results = data.results;
+  // console.log(data.results);
+  if (results.length) {
+    const jobsData = results.map((obj) => {
+      return {
+        jobTitle: obj.title,
+        postedDate: obj.created,
+        companyName: obj.company.display_name,
+        location: obj.location.display_name,
+        jobURL: obj.redirect_url,
+        description: obj.description,
+      };
+    });
 
-  jobsData.map((job) => {
-    const article = createArticle(job);
-    jobs.append(article);
-  });
+    jobsData.map((job) => {
+      const article = createArticle(job);
+      jobs.append(article);
+    });
+  }
 };
 
 function getData(url, options) {
@@ -40,24 +42,29 @@ function createArticle(job) {
   const article = document.createElement("article");
 
   let h2 = document.createElement("h2");
-  h2.textContent = job.job_title;
+  h2.textContent = job.jobTitle;
 
   let postedDate = document.createElement("p");
-  postedDate.textContent = job.posted_date;
+  postedDate.textContent = job.postedDate;
 
-  let companyName = document.createElement("p");
-  companyName.textContent = job.company_name;
+  let companyName = document.createElement("h4");
+  companyName.textContent = job.companyName;
 
-  let companyURL = document.createElement("a");
-  companyURL.textContent = job.company_url;
+  let location = document.createElement("p");
+  location.textContent = job.location;
+
+  let description = document.createElement("p");
+  description.textContent = job.description;
 
   let jobURL = document.createElement("a");
-  jobURL.textContent = job.job_url;
+  jobURL.textContent = "Link to the job post";
+  jobURL.setAttribute("href", job.jobURL);
 
   article.append(h2);
-  article.append(postedDate);
   article.append(companyName);
-  article.append(companyURL);
+  article.append(postedDate);
+  article.append(location);
+  article.append(description);
   article.append(jobURL);
   return article;
 }
