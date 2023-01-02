@@ -50,14 +50,14 @@ function createArticle(job) {
   let companyName = document.createElement("h4");
   companyName.textContent = job.companyName;
 
-  let location = document.createElement("p");
+  let location = document.createElement("div");
   location.textContent = job.location;
 
   let description = document.createElement("p");
   description.textContent = job.description;
 
   let jobURL = document.createElement("a");
-  jobURL.textContent = "Link to the job post";
+  jobURL.textContent = "Full job post";
   jobURL.setAttribute("href", job.jobURL);
 
   article.append(h2);
