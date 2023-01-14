@@ -42,7 +42,7 @@ input{
     padding: .3rem;
     display: block;
     width: 100%;
-    border: solid #c0c0c0 solid;
+    border: 1px #c0c0c0 solid;
     border-radius: .5rem;
     line-height: 1.5rem;
 }
