@@ -1,42 +1,31 @@
 window.onload = async () => {
-  const { apiKey, apiID } = await import("./api-keys.js");
   const jobs = document.querySelector("#jobs");
-  const url = `https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=${apiID}&app_key=${apiKey}`;
-  const options = {
-    method: "GET",
-    header: {
-      Accept: "application/json",
-    },
-  };
+  const url = "http://localhost:3000/";
 
-  const data = await getData(url, options);
-  const results = data.results;
-  // console.log(data.results);
-  if (results.length) {
-    const jobsData = results.map((obj) => {
-      return {
-        jobTitle: obj.title,
-        postedDate: obj.created,
-        companyName: obj.company.display_name,
-        location: obj.location.display_name,
-        jobURL: obj.redirect_url,
-        description: obj.description,
-      };
-    });
+  try {
+    const data = await fetch(url);
+    const results = await data.json();
+    if (results.length) {
+      const jobsData = results.map((obj) => {
+        return {
+          jobTitle: obj.title,
+          postedDate: obj.created,
+          companyName: obj.company.display_name,
+          location: obj.location.display_name,
+          jobURL: obj.redirect_url,
+          description: obj.description,
+        };
+      });
 
-    jobsData.map((job) => {
-      const article = createArticle(job);
-      jobs.append(article);
-    });
+      jobsData.map((job) => {
+        const article = createArticle(job);
+        jobs.append(article);
+      });
+    }
+  } catch (err) {
+    console.log(err);
   }
 };
-
-function getData(url, options) {
-  const data = fetch(url, options)
-    .then((response) => response.json())
-    .catch((err) => console.error(err));
-  return data;
-}
 
 function createArticle(job) {
   const article = document.createElement("article");
