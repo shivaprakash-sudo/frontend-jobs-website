@@ -29,31 +29,42 @@ window.onload = async () => {
 
 function createArticle(job) {
   const article = document.createElement("article");
+  article.classList.add("jobPost");
 
   let h2 = document.createElement("h2");
   h2.textContent = job.jobTitle;
+  h2.classList.add("jobTitle")
+
+  let div = document.createElement("div");
+  div.classList.add("jobContent");
 
   let postedDate = document.createElement("p");
   postedDate.textContent = job.postedDate;
+  postedDate.classList.add("postedDate")
 
   let companyName = document.createElement("h4");
   companyName.textContent = job.companyName;
+  companyName.classList.add("companyName"); 
 
   let location = document.createElement("div");
   location.textContent = job.location;
+  location.classList.add("location");
 
   let description = document.createElement("p");
   description.textContent = job.description;
+  description.classList.add("description");
 
   let jobURL = document.createElement("a");
   jobURL.textContent = "Full job post";
   jobURL.setAttribute("href", job.jobURL);
+  jobURL.classList.add("jobURL");
 
   article.append(h2);
-  article.append(companyName);
-  article.append(postedDate);
-  article.append(location);
-  article.append(description);
-  article.append(jobURL);
+  div.append(companyName);
+  div.append(postedDate);
+  div.append(location);
+  div.append(description);
+  div.append(jobURL);
+  article.append(div);
   return article;
 }

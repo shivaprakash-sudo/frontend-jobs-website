@@ -6,13 +6,11 @@ box-sizing: border-box;
 
 /* ////////////////////////////////////// */
 
-body{
+body {
     font-size: 1rem;
 }
 
 main{
-    /* background-color: aquamarine; */
-    margin: 3%;
     display: grid;
     gap: 1rem;
     font-family: 'Roboto Mono', monospace;
@@ -38,16 +36,6 @@ nav a{
     padding-right: 2rem;
 }
 
-
-article{
-    padding: 1rem;
-    margin:1rem;
-    border: 1px #c0c0c0 solid;
-    border-radius: 1rem;
-    box-shadow: 3px 3px 5px gray;
-    background-color: #fdfdfd;
-}
-
 form{
     display: grid;
     gap: .5rem;
@@ -57,12 +45,49 @@ form{
 input,select{
     padding: .3rem;
     display: block;
-    width: 100%;
+    /* width: 95%; */
     border: 1px #c0c0c0 solid;
     border-radius: .5rem;
     line-height: 1.5rem;
     box-shadow: 3px 3px 5px gray;
 }
+
+h1 {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    font-family: 'Roboto Mono', monospace;
+}
+
+
+.jobPost{
+    margin:1rem;
+    border: 1px #c0c0c0 solid;
+    border-radius: 15px;
+    box-shadow: 3px 3px 5px gray;
+    background-color: #fdfdfd;
+    display: grid;
+    gap:.75rem;
+}
+
+.jobTitle{
+    font-size: 1.25rem;
+    font-weight: 600;
+    background-color: lightgray;
+    border-top-left-radius:15px;
+    border-top-right-radius:15px;
+    padding: 0.3rem .5rem;
+}
+
+.jobContent{
+    padding: 0 .5rem;
+}
+
+.description{
+    height: 5.25rem;
+    overflow: hidden;
+}
+
 
 #go{
     border: none;
@@ -81,20 +106,4 @@ input,select{
     background-color: #d0d0d0;
 }
 
-div{
-    margin-bottom: 20px;
-}
-
-.description{
-    margin-bottom: 5px;
-    font-family: 'Roboto Mono', monospace;
-    padding: 5rem;
-}
-
-h1 {
-    text-align: center;
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-    font-family: 'Roboto Mono', monospace;
-}
 
