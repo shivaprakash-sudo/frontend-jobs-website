@@ -1,100 +1,101 @@
-*,*::after,*::before {
-padding: 0;
-margin: 0;
-box-sizing: border-box; 
-};
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
 /* ////////////////////////////////////// */
 
-body{
-    font-size: 1rem;
+body {
+  font-size: 1rem;
 }
 
-main{
-    /* background-color: aquamarine; */
-    margin: 3%;
-    display: grid;
-    gap: 1rem;
-    font-family: 'Roboto Mono', monospace;
+main {
+  /* background-color: aquamarine; */
+  margin: 3%;
+  display: grid;
+  gap: 1rem;
+  font-family: "Roboto Mono", monospace;
 }
 
-nav{
-    font-family: 'Roboto Mono', monospace;
-    height: 2.5rem;
-    background-color: #d0d0d0;
-    font-size: 1.5rem;
-    padding: .5rem;
-    padding-bottom: 2.5rem;
-    border-bottom: #a0a0a0;
-    /* to keep the navbar sticking to the top */
-    position:sticky;
-    position: -webkit-sticky;
-	top: 0;
+nav {
+  font-family: "Roboto Mono", monospace;
+  height: 2.5rem;
+  background-color: #d0d0d0;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: #a0a0a0;
+  /* to keep the navbar sticking to the top */
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
 }
 
-nav a{
-    color: black;
-    text-decoration: none;
-    padding-right: 2rem;
+nav a {
+  color: black;
+  text-decoration: none;
+  padding-right: 2rem;
 }
 
-
-article{
-    padding: 1rem;
-    margin:1rem;
-    border: 1px #c0c0c0 solid;
-    border-radius: 1rem;
-    box-shadow: 3px 3px 5px gray;
-    background-color: #fdfdfd;
+article {
+  padding: 1rem;
+  margin: 1rem;
+  border: 1px #c0c0c0 solid;
+  border-radius: 1rem;
+  box-shadow: 3px 3px 5px gray;
+  background-color: #fdfdfd;
 }
 
-form{
-    display: grid;
-    gap: .5rem;
-    font-family: 'Roboto Mono', monospace;
+form {
+  display: grid;
+  gap: 0.5rem;
+  font-family: "Roboto Mono", monospace;
 }
 
-input,select{
-    padding: .3rem;
-    display: block;
-    width: 100%;
-    border: 1px #c0c0c0 solid;
-    border-radius: .5rem;
-    line-height: 1.5rem;
-    box-shadow: 3px 3px 5px gray;
+input,
+select {
+  padding: 0.3rem;
+  display: block;
+  width: 100%;
+  border: 1px #c0c0c0 solid;
+  border-radius: 0.5rem;
+  line-height: 1.5rem;
+  box-shadow: 3px 3px 5px gray;
 }
 
-#go{
-    border: none;
-    font-size: inherit;
-    padding-block: .5rem;
-    padding-inline: 1rem;
-    margin-inline: auto;
-    margin-top: 1.5rem;
-    border-radius: 5px;
-    background-color: #c0c0c0;
-    box-shadow: 3px 3px 5px gray;
+#go {
+  border: none;
+  font-size: inherit;
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  margin-inline: auto;
+  margin-top: 1.5rem;
+  border-radius: 5px;
+  background-color: #c0c0c0;
+  box-shadow: 3px 3px 5px gray;
 }
 
-#go:hover{
-    transition: 250ms;
-    background-color: #d0d0d0;
+#go:hover {
+  transition: 250ms;
+  background-color: #d0d0d0;
 }
 
-div{
-    margin-bottom: 20px;
+div {
+  margin-bottom: 20px;
 }
 
-.description{
-    margin-bottom: 5px;
-    font-family: 'Roboto Mono', monospace;
-    padding: 5rem;
+.description {
+  margin-bottom: 5px;
+  font-family: "Roboto Mono", monospace;
+  padding: 5rem;
 }
 
 h1 {
-    text-align: center;
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-    font-family: 'Roboto Mono', monospace;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  font-family: "Roboto Mono", monospace;
 }
-
