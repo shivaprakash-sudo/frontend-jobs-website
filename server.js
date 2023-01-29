@@ -1,9 +1,9 @@
-import dotenv from "dotenv";
 import express from "express";
 import fetch from "node-fetch";
 import cors from "cors";
 
 if (process.env.NODE_ENV !== "production") {
+  const { default: dotenv } = import("dotenv");
   dotenv.config();
 }
 
