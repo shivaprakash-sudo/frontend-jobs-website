@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node server.js",
-    "devStart": "nodemon server.js"
+    "devStart": "nodemon server.js",
+    "prettier-watch": "onchange \"**/*\" -- prettier --write --ignore-unknown {{changed}}"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   "homepage": "https://github.com/shivaprakash-sudo/frontend-jobs-website#readme",
   "devDependencies": {
     "dotenv": "^16.0.3",
+    "onchange": "^7.1.0",
     "prettier": "^2.8.3"
   },
   "dependencies": {
