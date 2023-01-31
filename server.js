@@ -16,6 +16,7 @@ const url = `https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=${process.env
 app.get("/", async (req, res) => {
   const data = await getData(url);
   const results = await data.results;
+  console.log(results)
   res.json(results);
 });
 
