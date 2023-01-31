@@ -1,8 +1,10 @@
-*,*::after,*::before {
-padding: 0;
-margin: 0;
-box-sizing: border-box; 
-};
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
 /* ////////////////////////////////////// */
 
@@ -16,24 +18,24 @@ main{
     font-family: 'Roboto Mono', monospace;
 }
 
-nav{
-    font-family: 'Roboto Mono', monospace;
-    height: 2.5rem;
-    background-color: #d0d0d0;
-    font-size: 1.5rem;
-    padding: .5rem;
-    padding-bottom: 2.5rem;
-    border-bottom: #a0a0a0;
-    /* to keep the navbar sticking to the top */
-    position:sticky;
-    position: -webkit-sticky;
-	top: 0;
+nav {
+  font-family: "Roboto Mono", monospace;
+  height: 2.5rem;
+  background-color: #d0d0d0;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: #a0a0a0;
+  /* to keep the navbar sticking to the top */
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
 }
 
-nav a{
-    color: black;
-    text-decoration: none;
-    padding-right: 2rem;
+nav a {
+  color: black;
+  text-decoration: none;
+  padding-right: 2rem;
 }
 
 form{
@@ -114,9 +116,21 @@ color: #444;
     box-shadow: 3px 3px 5px gray;
 }
 
-#go:hover{
-    transition: 250ms;
-    background-color: #d0d0d0;
+#go:hover {
+  transition: 250ms;
+  background-color: #d0d0d0;
 }
 
+div {
+  margin-bottom: 20px;
+}
 
+.description {
+  margin-bottom: 5px;
+  font-family: "Roboto Mono", monospace;
+  padding: 5rem;
+}
+
+h1 {
+  text-align: center;
+}

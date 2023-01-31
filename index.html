@@ -1,55 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- googlefont -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./app.css" />
+    <link rel="shortcut icon" type="image/jpg" href="./images/code-slash.svg" />
+    <title>Frontend Jobs</title>
+  </head>
 
-  <link rel="stylesheet" href="./app.css">
-  <link rel="shortcut icon" type="image/jpg" href="code-slash.svg" />
-  <title>Frontend Jobs</title>
-</head>
+  <body>
+    <nav>
+      <h1 id="site-heading">
+        <a href="./index.html"
+        ><span
+        ><img src="./images/code-slash.svg" alt="" aria-hidden="true" /></span
+        >Frontend Jobs</a
+        >
+      </h1>
+      <!-- <div id="icon-menu">
+        <img src="./images/icon-hamburger.svg" alt="" aria-hidden="true" />
+      </div> -->
 
-<body>
-  <nav>
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-code-slash"
-      viewBox="0 0 16 16">
-      <path
-        d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z" />
-    </svg> <a href="/index.html">Frontend Jobs</a>
-    <a href="/about.html">About Us</a>
-    <a href="/contact.html">Contact Us</a>
-  </nav>
+      <!-- <ul id="nav-links">
+        <li class="nav-links__item"><a href="./about.html">About Us</a></li>
+        <li class="nav-links__item"><a href="./contact.html">Contact Us</a></li>
+      </ul> -->
+    </nav>
 
-  <main class="wrapper">
-    <section id="search">
-      <form action="/search">
-        <input type="text" placeholder="Search a job" id="search" required />
-        <!-- <input type="text" placeholder="Which Country?" id="location" /> -->
-        <select name="country" id="country">
-          <option value="">--Which country?--</option>
-          <option value="UK">UK</option>
-          <option value="US">US</option>
-          <option value="Ireland">Ireland</option>
-          <option value="France">France</option>
-          <option value="Spain">Spain</option>
-          <option value="Other">Other</option>
-        </select>
-        <button id="go">Search</button>
-      </form>
-    </section>
-    <section id="jobs"></section>
-  </main>
-  <footer class="wrapper">
-
-  </footer>
-  <script src="./script.js"></script>
-</body>
-
+    <main class="wrapper">
+      <section id="search">
+        <form action="/search">
+          <input type="text" placeholder="Search a job" id="search" required />
+          <!-- <input type="text" placeholder="Which Country?" id="location" /> -->
+          <select name="country" id="country">
+            <option value="">--Which country?--</option>
+            <option value="UK">UK</option>
+            <option value="US">US</option>
+            <option value="Ireland">Ireland</option>
+            <option value="France">France</option>
+            <option value="Spain">Spain</option>
+            <option value="Other">Other</option>
+          </select>
+          <button id="go">Search</button>
+        </form>
+      </section>
+      <section id="jobs"></section>
+    </main>
+    <footer class="wrapper"></footer>
+    <script src="./script.js"></script>
+  </body>
 </html>
