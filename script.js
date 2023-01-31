@@ -55,7 +55,7 @@ function createArticle(job) {
     description.classList.add("description");
 
     let jobURL = document.createElement("a");
-    jobURL.textContent = "Full job post";
+    jobURL.textContent = "View Full Job Post";
     jobURL.setAttribute("href", job.jobURL);
     jobURL.classList.add("jobURL");
 
