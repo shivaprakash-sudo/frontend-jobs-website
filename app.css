@@ -97,7 +97,7 @@ select {
 .jobURL {
     color: #000;
     text-transform: uppercase;
-    /* letter-spacing: 2px; */
+    margin-block-start: auto;
 }
 
 .jobURL:hover {

@@ -9,7 +9,7 @@ window.onload = async () => {
             const jobsData = results.map((obj) => {
                 return {
                     jobTitle: obj.title,
-                    postedDate: obj.created,
+                    // postedDate: obj.created,
                     companyName: obj.company.display_name,
                     location: obj.location.display_name,
                     jobURL: obj.redirect_url,
@@ -38,9 +38,9 @@ function createArticle(job) {
     let div = document.createElement("div");
     div.classList.add("jobContent");
 
-    let postedDate = document.createElement("p");
-    postedDate.textContent = job.postedDate;
-    postedDate.classList.add("postedDate");
+    // let postedDate = document.createElement("p");
+    // postedDate.textContent = job.postedDate;
+    // postedDate.classList.add("postedDate");
 
     let companyName = document.createElement("h4");
     companyName.textContent = job.companyName;
@@ -61,7 +61,7 @@ function createArticle(job) {
 
     article.append(h2);
     div.append(companyName);
-    div.append(postedDate);
+    // div.append(postedDate);
     div.append(location);
     div.append(description);
     div.append(jobURL);
