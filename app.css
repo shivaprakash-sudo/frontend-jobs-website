@@ -47,6 +47,10 @@ form {
     gap: 0.5rem;
 }
 
+input {
+    outline: none;
+}
+
 input,
 select {
     margin-inline: auto;
@@ -107,7 +111,7 @@ select {
 .description {
     margin-block: 0.7rem;
     font-size: 0.95rem;
-    max-height: 5.1rem;
+    /* max-height: 5.1rem; */
     overflow: hidden;
 }
 

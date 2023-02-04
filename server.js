@@ -3,7 +3,7 @@ import fetch from "node-fetch";
 import cors from "cors";
 
 if (process.env.NODE_ENV !== "production") {
-    const { default: dotenv } = import("dotenv");
+    const { default: dotenv } = await import("dotenv");
     dotenv.config();
 }
 
@@ -11,12 +11,12 @@ const app = express();
 
 app.use(cors());
 
-const url = `https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=${process.env.apiID}&app_key=${process.env.apiKey}`;
+const url = `https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=${process.env.apiID}&app_key=${process.env.apiKey}&what=frontend%20developer`;
 
 app.get("/", async (req, res) => {
     const data = await getData(url);
     const results = await data.results;
-    console.log(results);
+    // console.log(results);
     res.json(results);
 });
 
