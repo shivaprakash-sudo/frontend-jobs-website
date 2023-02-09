@@ -1,6 +1,6 @@
 window.onload = async () => {
     const jobs = document.querySelector("#jobs");
-    const url = "http://localhost:3000";
+    const url = "https://frontend-jobs-api.cyclic.app";
 
     try {
         const data = await fetch(url);
