@@ -1,10 +1,29 @@
 window.onload = async () => {
     const jobs = document.querySelector("#jobs");
-    const url = "https://frontend-jobs-api.cyclic.app";
+    const searchForm = document.querySelector("#searchForm");
+    let url = "https://frontend-jobs-api.cyclic.app/";
+    searchForm.onsubmit = async (e) => {
+        // e.preventDefault();
+        const formData = new FormData(searchForm);
+        fetch(url + "search", {
+            method: "post",
+            body: formData,
+        })
+            .then((res) => res.json())
+            .then(async (data) => {
+                url += "search";
+                location.reload();
+                await populateSection(url, jobs);
+            });
+    };
 
+    await populateSection(url, jobs);
+};
+
+async function populateSection(url, sectionName) {
     try {
         const data = await fetch(url);
-        const results = await data.json();
+        let results = await data.json();
         if (results.length) {
             const jobsData = results.map((obj) => {
                 return {
@@ -18,13 +37,13 @@ window.onload = async () => {
 
             jobsData.map((job) => {
                 const article = createArticle(job);
-                jobs.append(article);
+                sectionName.append(article);
             });
         }
     } catch (err) {
         console.log(err);
     }
-};
+}
 
 function createArticle(job) {
     const article = document.createElement("article");

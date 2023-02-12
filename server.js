@@ -10,14 +10,25 @@ if (process.env.NODE_ENV !== "production") {
 const app = express();
 
 app.use(cors());
-
-const url = `https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=${process.env.apiID}&app_key=${process.env.apiKey}&what=frontend%20developer`;
+app.use(express.json());
+app.use(
+    express.urlencoded({
+        extended: true,
+    })
+);
 
 app.get("/", async (req, res) => {
-    const data = await getData(url);
-    const results = await data.results;
-    // console.log(results);
-    res.json(results);
+    const url = `https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=${process.env.apiID}&app_key=${process.env.apiKey}&results_per_page=30&what=frontend%20developer`;
+    await sendDataToResponse(url, res);
+});
+
+app.post("/search", async (req, res) => {
+    const { search, country } = req.body;
+    if (search && country) {
+        search.replace(" ", "%20");
+        const url = `https://api.adzuna.com/v1/api/jobs/${country}/search/1?app_id=${process.env.apiID}&app_key=${process.env.apiKey}&results_per_page=30&what=${search}`;
+        await sendDataToResponse(url, res);
+    }
 });
 
 function getData(url) {
@@ -25,6 +36,12 @@ function getData(url) {
         .then((response) => response.json())
         .catch((err) => console.error(err));
     return data;
+}
+
+async function sendDataToResponse(url, res) {
+    const data = await getData(url);
+    const results = await data.results;
+    res.json(results);
 }
 
 app.listen(3000, () => {
