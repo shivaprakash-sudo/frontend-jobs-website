@@ -1,6 +1,15 @@
 window.onload = async () => {
     const jobs = document.querySelector("#jobs");
+    const formData = new FormData(document.querySelector("#searchForm"));
+    console.log(formData);
     const url = "http://localhost:3000";
+
+    fetch("http://localhost:3000/search", {
+        method: "post",
+        body: formData,
+    })
+        .then((response) => response.json())
+        .then((data) => console.log(data));
 
     try {
         const data = await fetch(url);

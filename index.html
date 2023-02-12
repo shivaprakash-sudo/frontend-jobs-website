@@ -38,12 +38,18 @@
         </header>
 
         <main class="wrapper">
-            <section id="search">
-                <form action="/search">
+            <section>
+                <form
+                    action="http://localhost:3000/search"
+                    id="searchForm"
+                    method="POST"
+                >
                     <input
                         type="text"
                         placeholder="Search a job"
+                        name="search"
                         id="search"
+                        value=""
                         required
                     />
                     <!-- <input type="text" placeholder="Which Country?" id="location" /> -->

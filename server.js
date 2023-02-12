@@ -10,14 +10,26 @@ if (process.env.NODE_ENV !== "production") {
 const app = express();
 
 app.use(cors());
+app.use(express.json());
+app.use(
+    express.urlencoded({
+        extended: true,
+    })
+);
 
-const url = `https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=${process.env.apiID}&app_key=${process.env.apiKey}&what=frontend%20developer`;
+const url = `https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=${process.env.apiID}&app_key=${process.env.apiKey}&results_per_page=30&what=frontend%20developer`;
 
 app.get("/", async (req, res) => {
     const data = await getData(url);
     const results = await data.results;
-    // console.log(results);
     res.json(results);
+});
+
+app.post("/search", async (req, res) => {
+    console.log(req.body);
+    res.json({
+        message: "Form data is sent succesfully!",
+    });
 });
 
 function getData(url) {
