@@ -1,11 +1,11 @@
 window.onload = async () => {
     const jobs = document.querySelector("#jobs");
     const searchForm = document.querySelector("#searchForm");
-    let url = "http://localhost:3000/";
+    let url = "https://frontend-jobs-api.cyclic.app/";
     searchForm.onsubmit = async (e) => {
         // e.preventDefault();
         const formData = new FormData(searchForm);
-        fetch("http://localhost:3000/search", {
+        fetch(url + "search", {
             method: "post",
             body: formData,
         })
