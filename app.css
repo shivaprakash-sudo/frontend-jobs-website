@@ -50,6 +50,10 @@ main {
     padding: 2rem;
 }
 
+#searchForm {
+    max-width: 25rem;
+}
+
 h1 {
     text-align: center;
     max-width: 80%;
@@ -121,23 +125,48 @@ select {
 .jobPost {
     max-width: 90%;
     margin-inline: auto;
-    border: 1px #c0c0c0 solid;
+    border: 1px #373a40 solid;
     border-radius: 15px;
     box-shadow: 3px 3px 5px gray;
-    background-color: #fdfdfd;
+    background-color: #25262b;
+    color: #c1c2c5;
+    padding: 1rem;
+    transition: 0.25s ease-in-out;
+}
+
+.jobPost:hover {
+    transform: scale(1.015);
+}
+
+.jobHeading{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.jobLogo{
+    width: 50px;
+    height: 50px;
+    align-self: center;
+}
+
+.jobText{
+display: flex;
+flex-direction: column;
+padding-left: 1rem;
 }
 
 .jobTitle {
+    color: #fff;
     font-size: 1.25rem;
     font-weight: 600;
-    background-color: lightgray;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    padding: 1rem;
 }
 
+/* .companyName{
+
+} */
+
 .jobContent {
-    padding: 1rem;
     display: grid;
     gap: 0.3rem;
 }
@@ -145,18 +174,29 @@ select {
 .location {
     font-size: 0.8rem;
     font-style: italic;
-    color: #444;
+    color: #c1c2c5;
 }
 
-.jobURL {
+.jobSalary {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+
+.moneyLogo {
+   height: 20px;
+   width: 20px;
+}
+
+/* .jobURL {
     color: #000;
     text-transform: uppercase;
     margin-block-start: auto;
-}
+} */
 
-.jobURL:hover {
+/* .jobURL:hover {
     color: #00f;
-}
+} */
 
 .description {
     margin-block: 0.7rem;
@@ -171,13 +211,13 @@ select {
         padding-inline: 1.5rem;
     }
 
-    #jobs {
+    /* #jobs {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 1.5rem;
-    }
+    } */
 
     .jobPost {
-        max-width: 30rem;
+        max-width: 50rem;
     }
 }
 
@@ -188,6 +228,6 @@ select {
     }
 
     #jobs {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
