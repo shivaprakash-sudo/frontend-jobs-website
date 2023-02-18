@@ -4,7 +4,7 @@ window.onload = async () => {
     let url = "https://frontend-jobs-api.cyclic.app/";
     // let url = "http://localhost:3000/"; //for developers
     searchForm.onsubmit = async (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         const formData = new FormData(searchForm);
         fetch(url + "search", {
             method: "post",
