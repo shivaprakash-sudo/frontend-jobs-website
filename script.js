@@ -1,29 +1,38 @@
 window.onload = async () => {
     const jobs = document.querySelector("#jobs");
     const searchForm = document.querySelector("#searchForm");
-    let url = "https://frontend-jobs-api.cyclic.app/";
+    // let url = "https://frontend-jobs-api.cyclic.app/";
+    let url = "http://localhost:3000/"; //for developers
     searchForm.onsubmit = async (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         const formData = new FormData(searchForm);
         fetch(url + "search", {
             method: "post",
             body: formData,
         })
             .then((res) => res.json())
-            .then(async (data) => {
-                url += "search";
-                location.reload();
-                await populateSection(url, jobs);
+            .then((data) => {
+                // await populateSection(localURL, jobs);
+                console.log(data);
             });
     };
 
     await populateSection(url, jobs);
 };
 
-async function populateSection(url, sectionName) {
+async function getData(url) {
     try {
         const data = await fetch(url);
         let results = await data.json();
+        return results;
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+async function populateSection(url, sectionName) {
+    try {
+        const results = await getData(url);
         if (results.length) {
             const jobsData = results.map((obj) => {
                 return {
@@ -33,7 +42,7 @@ async function populateSection(url, sectionName) {
                     jobURL: obj.redirect_url,
                     description: obj.description.slice(0, 160) + "...",
                     minSalary: obj.salary_min,
-                    maxSalary: obj.salary_max
+                    maxSalary: obj.salary_max,
                 };
             });
 
@@ -88,16 +97,14 @@ function createArticle(job) {
     money.classList.add("moneyLogo");
 
     let salaryRange = document.createElement("p");
-    if(job.minSalary=="Undisclosed"||job.minSalary<=0){
+    if (job.minSalary == "Undisclosed" || job.minSalary <= 0) {
         salaryRange.textContent = "Undisclosed";
-    }else if(job.minSalary!=job.maxSalary){
+    } else if (job.minSalary != job.maxSalary) {
         salaryRange.textContent = `${Math.round(
             job.minSalary / 1000
         )}k-${Math.round(job.maxSalary / 1000)}k`;
-    }else if(job.minSalary==job.maxSalary){
-        salaryRange.textContent = `${Math.round(
-            job.minSalary / 1000
-        )}k`;
+    } else if (job.minSalary == job.maxSalary) {
+        salaryRange.textContent = `${Math.round(job.minSalary / 1000)}k`;
     }
 
     // let jobURL = document.createElement("a");
