@@ -11,7 +11,7 @@
             href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;400;500;600;700;800;900&display=swap"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="./app.css" />
+        <link rel="stylesheet" href="../app.css" />
         <link
             rel="shortcut icon"
             type="image/jpg"
@@ -27,7 +27,7 @@
                     ><span
                         ><img
                             id="logo"
-                            src="./images/icon.svg"
+                            src="../images/icon.svg"
                             alt=""
                             aria-hidden="true" /></span
                     >Frontend Jobs</a
@@ -53,12 +53,10 @@
                         value=""
                         required
                     />
-                    <!-- <input type="text" placeholder="Which Country?" id="location" /> -->
                     <select name="country" id="country">
                         <option value="">--Which country?--</option>
                         <option value="gb">UK</option>
                         <option value="us">US</option>
-                        <option value="Ireland">Ireland</option>
                         <option value="fr">France</option>
                         <option value="es">Spain</option>
                         <option value="Other">Other</option>
@@ -66,7 +64,41 @@
                     <button id="go">Search</button>
                 </form>
             </section>
-            <section id="jobs"></section>
+            <section id="jobs">
+                <% data.forEach(job=>{ %>
+                <article class="jobPost">
+                    <div class="jobHeading">
+                        <img
+                            src="../images/free-logoa.png"
+                            alt="Company Logo"
+                        />
+                        <div class="jobText">
+                            <h2 class="jobTitle"><%= job.title %></h2>
+                            <h4><%= job.company.display_name %></h4>
+                        </div>
+                    </div>
+                    <div class="jobContent">
+                        <p class="description">
+                            <%= job.description.slice(0, 160) + "..." %>
+                        </p>
+                        <p class="location"><%= job.location.display_name %></p>
+                    </div>
+                    <div class="jobSalary">
+                        <img
+                            class="moneyIconLogo"
+                            src="../images/icons8-coins-48.png"
+                            alt="Dollar Icon"
+                        />
+                        <p>
+                            <% if (job.salary_max === job.salary_min) { %>
+                            <%=Math.round(job.salary_min/1000)%>k <% } else {%>
+                            <%= Math.round(job.salary_min/1000) %>k-<%=
+                            Math.round(job.salary_max/1000) %>k <% } %>
+                        </p>
+                    </div>
+                </article>
+                <% }) %>
+            </section>
         </main>
         <footer class="wrapper"></footer>
         <script src="./script.js"></script>

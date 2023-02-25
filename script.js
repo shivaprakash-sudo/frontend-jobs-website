@@ -60,22 +60,22 @@ function createArticle(job) {
     const article = document.createElement("article");
     article.classList.add("jobPost");
 
-    let div1 = document.createElement("div");
-    div1.classList.add("jobHeading");
+    let jobHeading = document.createElement("div");
+    jobHeading.classList.add("jobHeading");
 
     let icon = document.createElement("img");
     icon.src = "images/free-logoa.png";
     icon.classList.add("jobLogo");
 
-    let div3 = document.createElement("div");
-    div3.classList.add("jobText");
+    let jobTitleText = document.createElement("div");
+    jobTitleText.classList.add("jobText");
 
     let h2 = document.createElement("h2");
     h2.textContent = job.jobTitle;
     h2.classList.add("jobTitle");
 
-    let div2 = document.createElement("div");
-    div2.classList.add("jobContent");
+    let jobContent = document.createElement("div");
+    jobContent.classList.add("jobContent");
 
     let companyName = document.createElement("h4");
     companyName.textContent = job.companyName;
@@ -89,17 +89,16 @@ function createArticle(job) {
     description.textContent = job.description;
     description.classList.add("description");
 
-    let div4 = document.createElement("div");
-    div4.classList.add("jobSalary");
+    let jobSalary = document.createElement("div");
+    jobSalary.classList.add("jobSalary");
 
-    let money = document.createElement("img");
-    money.src = "images/icons8-coins-48.png";
-    money.classList.add("moneyLogo");
+    let moneyIcon = document.createElement("img");
+    moneyIcon.src = "images/icons8-coins-48.png";
+    moneyIcon.classList.add("moneyIconLogo");
 
     let salaryRange = document.createElement("p");
-    if (job.minSalary == "Undisclosed" || job.minSalary <= 0) {
-        salaryRange.textContent = "Undisclosed";
-    } else if (job.minSalary != job.maxSalary) {
+
+    if (job.minSalary != job.maxSalary) {
         salaryRange.textContent = `${Math.round(
             job.minSalary / 1000
         )}k-${Math.round(job.maxSalary / 1000)}k`;
@@ -107,22 +106,15 @@ function createArticle(job) {
         salaryRange.textContent = `${Math.round(job.minSalary / 1000)}k`;
     }
 
-    // let jobURL = document.createElement("a");
-    // jobURL.textContent = "View Full Job Post";
-    // jobURL.setAttribute("href", job.jobURL);
-    // jobURL.classList.add("jobURL");
-
-    div1.append(icon);
-    div3.append(h2);
-    div3.append(companyName);
-    div2.append(description);
-    div2.append(location);
-    div4.append(money, salaryRange);
-    // div4.append(salaryRange);
-    // div.append(jobURL);
-    div1.append(div3);
-    article.append(div1);
-    article.append(div2);
-    article.append(div4);
+    jobHeading.append(icon);
+    jobTitleText.append(h2);
+    jobTitleText.append(companyName);
+    jobHeading.append(jobTitleText);
+    jobContent.append(description);
+    jobContent.append(location);
+    jobSalary.append(moneyIcon, salaryRange);
+    article.append(jobHeading);
+    article.append(jobContent);
+    article.append(jobSalary);
     return article;
 }
