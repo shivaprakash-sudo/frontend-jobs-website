@@ -1,7 +1,5 @@
 import express from "express";
-import http from "http";
 import fetch from "node-fetch";
-import cors from "cors";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 
@@ -18,7 +16,6 @@ const __dirname = dirname(__filename);
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
 
-app.use(cors());
 app.use(express.json());
 app.use(
     express.urlencoded({
@@ -31,7 +28,7 @@ app.get("/", async (req, res) => {
     const url = `https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=${process.env.apiID}&app_key=${process.env.apiKey}&results_per_page=30&what=frontend%20developer`;
     const data = await getData(url);
 
-    res.render("index.ejs", { data });
+    res.render("index", { data });
 });
 
 app.post("/search", async (req, res) => {
@@ -41,7 +38,7 @@ app.post("/search", async (req, res) => {
         search.replace(" ", "%20");
         const url = `https://api.adzuna.com/v1/api/jobs/${country}/search/1?app_id=${process.env.apiID}&app_key=${process.env.apiKey}&results_per_page=30&what=${search}`;
         const data = await getData(url);
-        res.json(data);
+        res.render("index", { data });
     }
 });
 

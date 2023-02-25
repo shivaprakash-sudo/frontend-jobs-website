@@ -23,7 +23,7 @@
     <body>
         <header>
             <nav>
-                <a href="./index.html"
+                <a href="/"
                     ><span
                         ><img
                             id="logo"
@@ -40,11 +40,7 @@
                 <h1>
                     Best <span class="primaryColor">Dev</span> Jobs in the World
                 </h1>
-                <form
-                    action="https://frontend-jobs-api.cyclic.app/search"
-                    id="searchForm"
-                    method="POST"
-                >
+                <form action="/search" id="searchForm" method="POST">
                     <input
                         type="text"
                         placeholder="Search a job"
@@ -69,6 +65,7 @@
                 <article class="jobPost">
                     <div class="jobHeading">
                         <img
+                            class="jobLogo"
                             src="../images/free-logoa.png"
                             alt="Company Logo"
                         />
@@ -90,7 +87,9 @@
                             alt="Dollar Icon"
                         />
                         <p>
-                            <% if (job.salary_max === job.salary_min) { %>
+                            <% if (!(job.salary_max && job.salary_min)) { %>
+                            Unavailable <% } else if (job.salary_max ===
+                            job.salary_min) { %>
                             <%=Math.round(job.salary_min/1000)%>k <% } else {%>
                             <%= Math.round(job.salary_min/1000) %>k-<%=
                             Math.round(job.salary_max/1000) %>k <% } %>
