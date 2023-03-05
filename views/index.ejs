@@ -78,22 +78,42 @@
                         <p class="description">
                             <%= job.description.slice(0, 160) + "..." %>
                         </p>
-                        <p class="location"><%= job.location.display_name %></p>
                     </div>
                     <div class="jobSalary">
-                        <img
-                            class="moneyIconLogo"
-                            src="../images/icons8-coins-48.png"
-                            alt="Dollar Icon"
-                        />
-                        <p>
-                            <% if (!(job.salary_max && job.salary_min)) { %>
-                            Unavailable <% } else if (job.salary_max ===
-                            job.salary_min) { %>
-                            <%=Math.round(job.salary_min/1000)%>k <% } else {%>
-                            <%= Math.round(job.salary_min/1000) %>k-<%=
-                            Math.round(job.salary_max/1000) %>k <% } %>
-                        </p>
+                        <div>
+                            <img
+                                src="/images/baseline-location-on.svg"
+                                alt="Location icon"
+                            />
+                            <p class="location">
+                                <%= job.location.display_name %>
+                            </p>
+                        </div>
+                        <div>
+                            <img
+                                class="icon"
+                                src="../images/icons8-coins-48.png"
+                                alt="Dollar Icon"
+                            />
+                            <p>
+                                <% if (!(job.salary_max && job.salary_min)) { %>
+                                Unavailable <% } else if (job.salary_max ===
+                                job.salary_min) { %>
+                                <%=Math.round(job.salary_min/1000)%>k <% } else
+                                {%> <%= Math.round(job.salary_min/1000) %>k-<%=
+                                Math.round(job.salary_max/1000) %>k <% } %>
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <a
+                            class="jobFooter"
+                            href="<%= job.redirect_url %>"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Apply
+                        </a>
                     </div>
                 </article>
                 <% }) %>

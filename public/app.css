@@ -118,6 +118,8 @@ select {
 }
 
 .jobPost {
+    display: grid;
+    justify-content: space-between;
     max-width: 90%;
     margin-inline: auto;
     border: 1px #373a40 solid;
@@ -131,6 +133,16 @@ select {
 
 .jobPost:hover {
     transform: scale(1.015);
+}
+
+#jobModalContainer {
+    position: absolute;
+    overflow-y: auto;
+    inset: 0px;
+    padding: 3rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .jobHeading {
@@ -164,25 +176,43 @@ select {
 
 .location {
     font-size: 0.8rem;
-    font-style: italic;
+    font-weight: bold;
     color: #c1c2c5;
 }
 
 .jobSalary {
     display: flex;
-    gap: 0.5rem;
+    justify-content: space-between;
     align-items: center;
 }
 
-.moneyLogo {
-    height: 20px;
-    width: 20px;
+.jobSalary > div {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.icon {
+    height: 1.5rem;
+    width: 1.5rem;
 }
 
 .description {
     margin-block: 0.7rem;
     font-size: 0.95rem;
     overflow: hidden;
+}
+
+.jobFooter {
+    color: #4f87f5;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-block-start: 1rem;
+}
+
+.jobFooter:hover {
+    color: #4f87f5;
+    text-decoration: underline;
 }
 
 @media (min-width: 600px) {
